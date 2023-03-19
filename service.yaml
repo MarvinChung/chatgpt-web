@@ -6,6 +6,8 @@ metadata:
   name: chatgpt-web-service
 spec:
   ports:
-  - port: 3002
+    - port: 3002
+      nodePort: 31002
   selector:
     name: chatgpt-web-node
+  type: LoadBalancer

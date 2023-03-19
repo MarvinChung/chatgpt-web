@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,13 +6,19 @@ metadata:
   name: chatgpt-web-node
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      name: chatgpt-web-node
   template:
     metadata:
       labels:
         name: chatgpt-web-node
     spec:
       containers:
-      - image: chatgpt-web
+      - image: gcr.io/fake-playground/chatgpt-web:v1.0
         name: chatgpt-web-node
+        env:
+          - name: OPENAI_API_KEY
+            value: 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
         ports:
         - containerPort: 3002
