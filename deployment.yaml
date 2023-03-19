@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: chatgpt-web-node
+  name: chatgpt-web-node
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: chatgpt-web-node
+    spec:
+      containers:
+      - image: chatgpt-web
+        name: chatgpt-web-node
+        ports:
+        - containerPort: 3002
