@@ -19,6 +19,6 @@ spec:
         name: chatgpt-web-node
         env:
           - name: OPENAI_API_KEY
-            value: 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
+            value: <your-api-key>
         ports:
         - containerPort: 3002
